@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     private static let APIKey = "JjO607CBtb3LO7PZzQrhA6Mu4I8Kh-FWuwppjc2l"
     private static let APIURL = "http://10.3.125.234/api/"
     private static let LightsEndPoint = "/lights/"
+    private static let State = "/state"
     
     
     private var lights: [Light]? {
@@ -41,15 +42,16 @@ class ViewController: UIViewController {
         }
     }
     
-//    var jsonData = try? JSONSerialization.data(withJSONObject: ["effect": "colorloop", "on"])
+    var jsonData = try? JSONSerialization.data(withJSONObject: ["on": true, "effect": "colorloop"])
     
-    private func getLights() {
-        guard let url = URL(string: ViewController.APIURL + ViewController.APIKey + ViewController.LightsEndPoint) else { return }
+    private func getLights(lightNum: Int) {
+        
+        guard let url = URL(string: ViewController.APIURL + ViewController.APIKey + ViewController.LightsEndPoint + String(lightNum) + "/state/") else { return }
         
         let session = URLSession.shared
         var request = URLRequest(url: url)
-        request.httpMethod = Method.get.rawValue
-//        request.httpBody = jsonData
+        request.httpMethod = Method.put.rawValue
+        request.httpBody = jsonData
         
         let task = session.dataTask(with: request) { [weak self] (data, response, error) in
             
@@ -100,8 +102,9 @@ class ViewController: UIViewController {
     
 
     @IBAction func didTapButton(_ sender: Any) {
-        getLights()
-        print("did tap button")
+        for i in 1...3 {
+            getLights(lightNum: i)
+        }
     }
     
 
