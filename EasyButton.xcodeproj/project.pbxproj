@@ -47,6 +47,7 @@
 		33732E691EABA53C00B355F8 /* EasyButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33732E6D1EABA53C00B355F8 /* EasyButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyButtonUITests.swift; sourceTree = "<group>"; };
 		33732E6F1EABA53C00B355F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33732E7B1EABD1F900B355F8 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 			children = (
 				33732E4D1EABA53B00B355F8 /* AppDelegate.swift */,
 				33732E4F1EABA53B00B355F8 /* ViewController.swift */,
+				33732E7B1EABD1F900B355F8 /* Header.h */,
 				33732E511EABA53B00B355F8 /* Main.storyboard */,
 				33732E541EABA53B00B355F8 /* Assets.xcassets */,
 				33732E561EABA53B00B355F8 /* LaunchScreen.storyboard */,
@@ -416,6 +418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.clairefreehafer.EasyButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -428,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.clairefreehafer.EasyButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
