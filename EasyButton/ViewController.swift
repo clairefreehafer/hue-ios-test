@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         case put = "PUT"
     }
     
+    // URL variables
     private static let APIKey = "JjO607CBtb3LO7PZzQrhA6Mu4I8Kh-FWuwppjc2l"
     private static let APIURL = "http://10.3.125.234/api/"
     private static let LightsEndPoint = "/lights/"
@@ -42,15 +43,27 @@ class ViewController: UIViewController {
         }
     }
     
-    var jsonData = try? JSONSerialization.data(withJSONObject: ["on": true, "effect": "colorloop"])
+    // create json to send with put request
+//    var randomHue: UInt32 = arc4random_uniform(65535)
+    
+    
+    
     
     private func getLights(lightNum: Int) {
+        let jsonData = try? JSONSerialization.data(withJSONObject: [
+            "on": true,
+            "hue": arc4random_uniform(65536),
+            "sat": /*arc4random_uniform(255)*/ 254,
+            "bri": /*arc4random_uniform(255)*/ 254
+            ])
         
+        // URL to send request to
         guard let url = URL(string: ViewController.APIURL + ViewController.APIKey + ViewController.LightsEndPoint + String(lightNum) + "/state/") else { return }
         
+        // creating session and request body
         let session = URLSession.shared
         var request = URLRequest(url: url)
-        request.httpMethod = Method.put.rawValue
+        request.httpMethod = Method.put.rawValue // type of request
         request.httpBody = jsonData
         
         let task = session.dataTask(with: request) { [weak self] (data, response, error) in
@@ -99,7 +112,9 @@ class ViewController: UIViewController {
     }
     
 
-    
+/*******************************************/
+/********** BUTTON EVENT LISTENER **********/
+/*******************************************/
 
     @IBAction func didTapButton(_ sender: Any) {
         for i in 1...3 {
